@@ -9,6 +9,7 @@ router.get('/', function(req, res){
 //    console.log(req);
     console.log(req.session);
     if (req.session.user) {
+      $scope.username = req.session.username;
       console.log("/ Route if user");
       res.render('index', {username: req.session.username,
                            msg:req.session.msg,
@@ -46,11 +47,12 @@ router.get('/chat', function(req, res){
   console.log("/chat Route");
   if(req.session.user){
 
-    res.render('chat', {msg:req.session.msg});
-    return res.redirect('/');    
+    return res.render('chat', {msg:req.session.msg});  
   }
-  res.render('chat', {msg:req.session.msg});
-  res.redirect('/chat');
+  else{
+    req.session.msg = 'Access Denied!';
+    res.redirect('/login');
+  }
 });
 router.get('/logout', function(req, res){
     console.log("/logout Route");
