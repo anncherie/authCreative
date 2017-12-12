@@ -31,6 +31,7 @@
   Chat: <input type="text" ng-model="user.chat" /><br />
   <input type="submit" ng-click="update(user)" value="Save" />
 </form>
+<a id="back" href="/user"> PROFILE</a>
 <ul>
 <li ng-repeat='line in chats'>
 {{line.from}} - {{line.body}}
