@@ -42,6 +42,14 @@ router.get('/login',  function(req, res){
     }
     res.render('login', {msg:req.session.msg});
 });
+router.get('/chat', function(req, res){
+  console.log("/chat Route");
+  if(req.session.user){
+    res.redirect('/');
+  }
+  res.render('chat', {msg:req.session.msg});
+  res.redirect('/chat');
+});
 router.get('/logout', function(req, res){
     console.log("/logout Route");
     req.session.destroy(function(){
