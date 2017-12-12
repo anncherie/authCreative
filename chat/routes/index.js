@@ -45,7 +45,9 @@ router.get('/login',  function(req, res){
 router.get('/chat', function(req, res){
   console.log("/chat Route");
   if(req.session.user){
-    res.redirect('/');
+
+    res.render('chat', {msg:req.session.msg});
+    return res.redirect('/');    
   }
   res.render('chat', {msg:req.session.msg});
   res.redirect('/chat');
