@@ -9,7 +9,7 @@ router.get('/', function(req, res){
 //    console.log(req);
     console.log(req.session);
     if (req.session.user) {
-      $scope.username = req.session.username;
+      
       console.log("/ Route if user");
       res.render('index', {username: req.session.username,
                            msg:req.session.msg,
