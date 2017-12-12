@@ -24,10 +24,10 @@
 </head>
 
 <body>
-
+<div ng-controller="myController">
 <div ng-controller="chatController">
 <form novalidate class="simple-form">
-  Name: <input type="text" ng-model="user.name" /><br />
+  Name: <input type="text" ng-model="user.name" value="user.name" /><br />
   Chat: <input type="text" ng-model="user.chat" /><br />
   <input type="submit" ng-click="update(user)" value="Save" />
 </form>
@@ -36,6 +36,7 @@
 {{line.from}} - {{line.body}}
 </li>
 </ul>
+</div>
 </div>
 
 </body>
